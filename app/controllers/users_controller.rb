@@ -11,13 +11,15 @@ class UsersController < ApplicationController
     
     def create
         user = User.create(user_params(:username))
+        user = User.find_by(username: user.username)
         render json: user
+        # byebug
     end
 
     def update
         user = User.find(params[:id])
-        # byebug
-        user.update(user_params(:highscore))
+        user.update(user_params(:highscore, :rocks_dodged))
+        render json: user
     end
 
     private

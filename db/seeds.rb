@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Achievement.create(name: "20 Rocks Dodged")
+Achievement.create(name: "50 Rocks Dodged")
+Achievement.create(name: "100 Rocks Dodged")
