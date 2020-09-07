@@ -10,21 +10,19 @@ class UsersController < ApplicationController
     end
     
     def create
-        user = User.create(user_params(:username))
-        user = User.find_by(username: user.username)
+        user = User.create(user_params)
         render json: user
-        # byebug
     end
 
     def update
         user = User.find(params[:id])
-        user.update(user_params(:highscore, :rocks_dodged))
+        user.update(user_params)
         render json: user
     end
 
     private
 
-    def user_params(*args)
-        params.require(:user).permit(*args)
+    def user_params
+        params.require(:user).permit(:username, :highscore, :rocks_dodged)
     end
 end
